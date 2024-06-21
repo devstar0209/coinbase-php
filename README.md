@@ -2,59 +2,18 @@
 
 Coinbase docs [https://developers.coinbase.com/api/v2](https://developers.coinbase.com/api/v2)
 
-Coinbase Pro docs [https://docs.pro.coinbase.com](https://docs.pro.coinbase.com)
+Coinbase Pro migrated to V3.
 
-All interface methods are initialized the same as those provided by Coinbase. See details [src/api](https://github.com/zhouaini528/coinbase-php/tree/master/src/Api)
+Coinbase Pro docs [https://docs.cdp.coinbase.com/advanced-trade/docs/welcome](https://docs.cdp.coinbase.com/advanced-trade/docs/welcome)
+
+All interface methods are initialized the same as those provided by Coinbase. See details [src/api](https://github.com/devstar0209/coinbase-php/tree/master/src/Api)
 
 Most of the interface is now complete, and the user can continue to extend it based on my design, working with me to improve it.
 
-[中文文档](https://github.com/zhouaini528/coinbase-php/blob/master/README_CN.md)
-
-### Other exchanges API
-
-[Exchanges](https://github.com/zhouaini528/exchanges-php) It includes all of the following exchanges and is highly recommended.
-
-[Bitmex](https://github.com/zhouaini528/bitmex-php) Support [Websocket](https://github.com/zhouaini528/bitmex-php/blob/master/README.md#Websocket)
-
-[Okex](https://github.com/zhouaini528/okex-php) Support [Websocket](https://github.com/zhouaini528/okex-php/blob/master/README.md#Websocket)
-
-[Huobi](https://github.com/zhouaini528/huobi-php) Support [Websocket](https://github.com/zhouaini528/huobi-php/blob/master/README.md#Websocket)
-
-[Binance](https://github.com/zhouaini528/binance-php) Support [Websocket](https://github.com/zhouaini528/binance-php/blob/master/README.md#Websocket)
-
-[Kucoin](https://github.com/zhouaini528/kucoin-php)
-
-[Mxc](https://github.com/zhouaini528/Mxc-php)
-
-[Coinbase](https://github.com/zhouaini528/coinbase-php)
-
-[ZB](https://github.com/zhouaini528/zb-php)
-
-[Bitfinex](https://github.com/zhouaini528/bitfinex-php)
-
-[Bittrex](https://github.com/zhouaini528/bittrex-php)
-
-[Kraken](https://github.com/zhouaini528/kraken-php)
-
-[Gate](https://github.com/zhouaini528/gate-php)   
-
-[Bigone](https://github.com/zhouaini528/bigone-php)   
-
-[Crex24](https://github.com/zhouaini528/crex24-php)   
-
-[Bybit](https://github.com/zhouaini528/bybit-php)  
-
-[Coinbene](https://github.com/zhouaini528/coinbene-php)   
-
-[Bitget](https://github.com/zhouaini528/bitget-php)   
-
-[Poloniex](https://github.com/zhouaini528/poloniex-php)
-
-**If you don't find the exchange SDK you want, you can tell me and I'll join them.**
 
 #### Installation
 ```
-composer require linwj/coinbase
+composer require devstar/coinbase
 ```
 
 Support for more request Settings
@@ -83,7 +42,7 @@ $coinbase->setOptions([
 
 ### Coinbase Spot API
 
-Publics API [More](https://github.com/zhouaini528/coinbase-php/blob/master/tests/coinbase/publics.php)
+Publics API [More](https://github.com/devstar0209/coinbase-php/blob/master/tests/coinbase/publics.php)
 
 ```php
 $coinbase=new Coinbase();
@@ -137,7 +96,7 @@ try {
 }
 ```
 
-Privates API [More](https://github.com/zhouaini528/coinbase-php/blob/master/tests/coinbase/privates.php)
+Privates API [More](https://github.com/devstar0209/coinbase-php/blob/master/tests/coinbase/privates.php)
 ```php
 //User
 try {
@@ -251,16 +210,16 @@ try {
 
 ```
 
-[More Test](https://github.com/zhouaini528/coinbase-php/tree/master/tests/coinbase)
+[More Test](https://github.com/devstar0209/coinbase-php/tree/master/tests/coinbase)
 
-[More Api](https://github.com/zhouaini528/coinbase-php/tree/master/src/Api/Coinbase)
+[More Api](https://github.com/devstar0209/coinbase-php/tree/master/src/Api/Coinbase)
 
 
 
 
 ### Coinbase Pro Spot API
 
-Market related API [More](https://github.com/zhouaini528/coinbase-php/blob/master/tests/coinbase_pro/product.php)
+Market related API [More](https://github.com/devstar0209/coinbase-php/blob/master/tests/coinbase_pro/product.php)
 ```php
 $coinbase=new CoinbasePro();
 
@@ -291,7 +250,7 @@ try {
 
 ```
 
-Order related API [More](https://github.com/zhouaini528/coinbase-php/blob/master/tests/coinbase_pro/order.php)
+Order related API [More](https://github.com/devstar0209/coinbase-php/blob/master/tests/coinbase_pro/order.php)
 ```php
 $coinbase=new CoinbasePro($key,$secret,$passphrase);
 
@@ -400,6 +359,6 @@ try {
 
 ```
 
-[More Test](https://github.com/zhouaini528/coinbase-php/tree/master/tests/coinbase_pro/)
+[More Test](https://github.com/devstar0209/coinbase-php/tree/master/tests/coinbase_pro/)
 
-[More Api](https://github.com/zhouaini528/coinbase-php/tree/master/src/Api/CoinbasePro/)
+[More Api](https://github.com/devstar0209/coinbase-php/tree/master/src/Api/CoinbasePro/)

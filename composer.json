@@ -1,13 +1,14 @@
 {
-    "name": "linwj/coinbase",
+    "name": "devstar/coinbase",
     "type": "library",
     "description": "Coinbase API Like the official document interface, Support for arbitrary extension.",
     "license": "MIT",
-    "keywords": ["coinbase","bitmex", "binance", "okex", "huobi","kucoin","kumex"],
+    "version": "1.0",
+    "keywords": ["coinbase", "exchange", "coinbase pro", "trade"],
     "authors": [
         {
-            "name": "linwenjun",
-            "email": "465382251@qq.com"
+            "name": "devstar0209",
+            "email": "loganph.work@gmail.com"
         }
     ],
     "autoload": {
@@ -17,6 +18,10 @@
     },
     "require": {
         "php": ">=7.0",
-        "guzzlehttp/guzzle": "*"
+        "guzzlehttp/guzzle": "*",
+        "firebase/php-jwt": "^6.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.2"
     }
 }

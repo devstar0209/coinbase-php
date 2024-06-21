@@ -28,14 +28,16 @@ class CoinbasePro
     protected $secret;
     protected $passphrase;
     protected $host;
+    protected $version;
 
     protected $options=[];
 
-    function __construct(string $key='',string $secret='',string $passphrase='',string $host='https://api.pro.coinbase.com'){
+    function __construct(string $key='',string $secret='',string $passphrase='',string $host='https://api.coinbase.com', $version="/api/v3/brokerage"){
         $this->key=$key;
         $this->secret=$secret;
         $this->host=$host;
         $this->passphrase=$passphrase;
+        $this->version=$version;
     }
 
     /**
@@ -48,9 +50,9 @@ class CoinbasePro
             'passphrase'=>$this->passphrase,
             'host'=>$this->host,
             'options'=>$this->options,
+            'version'=>$this->version,
 
             'platform'=>'coinbasepro',
-            'version'=>'v1',
         ];
     }
 

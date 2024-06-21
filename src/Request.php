@@ -7,6 +7,7 @@ namespace Lin\Coinbase;
 
 use GuzzleHttp\Exception\RequestException;
 use Lin\Coinbase\Exceptions\Exception;
+use Firebase\JWT\JWT;
 
 class Request
 {
@@ -53,9 +54,6 @@ class Request
      *
      * */
     protected function auth(){
-        $this->nonce();
-
-        $this->signature();
 
         $this->headers();
 
@@ -98,24 +96,66 @@ class Request
         }
     }
 
+    function buildJwt() {
+        $keyName = $this->key;
+        $keySecret = str_replace('\\n', "\n", $this->secret);
+
+        $url=$this->host.$this->version.$this->path;
+        $uri = $this->type . ' ' . str_replace('https://', '', $url);
+
+        $privateKeyResource = openssl_pkey_get_private($keySecret);
+        if (!$privateKeyResource) {
+            throw new Exception('Private key is not valid');
+        }
+        $time = time();
+        $nonce = bin2hex(random_bytes(16));  // Generate a 32-character hexadecimal nonce
+        $jwtPayload = [
+            'sub' => $keyName,
+            'iss' => 'cdp',
+            'nbf' => $time,
+            'exp' => $time + 120,  // Token valid for 120 seconds from now
+            'uri' => $uri,
+        ];
+        $headers = [
+            'typ' => 'JWT',
+            'alg' => 'ES256',
+            'kid' => $keyName,  // Key ID header for JWT
+            'nonce' => $nonce  // Nonce included in headers for added security
+        ];
+        $jwtToken = JWT::encode($jwtPayload, $privateKeyResource, 'ES256', $keyName, $headers);
+        return $jwtToken;
+    }
+
     /**
      *
      * */
     protected function headers(){
-        $this->headers= [
-            'Content-Type' => 'application/json',
-            'CB-ACCESS-KEY'        => $this->key,
-            'CB-ACCESS-SIGN'       => $this->signature,
-            'CB-ACCESS-TIMESTAMP'  => $this->nonce,
-        ];
-        switch ($this->platform){
-            case 'coinbase':{
-                $this->headers['CB-VERSION']=date('Y-m-d',time());
-                break;
-            }
-            case 'coinbasepro':{
-                $this->headers['CB-ACCESS-PASSPHRASE']=$this->passphrase;
-                break;
+        $isCloudAPiKey = (mb_strpos($this->key, 'organizations/') !== false) || (str_starts_with($this->secret, '-----BEGIN'));
+        if ($isCloudAPiKey) {
+            $token = $this->buildJwt();
+            $this->headers= [
+                'Content-Type' => 'application/json',
+                'Authorization' => "Bearer $token"
+            ];
+        } else {
+            $this->nonce();
+            $this->signature();
+
+            $this->headers= [
+                'Content-Type' => 'application/json',
+                'CB-ACCESS-KEY'        => $this->key,
+                'CB-ACCESS-SIGN'       => $this->signature,
+                'CB-ACCESS-TIMESTAMP'  => $this->nonce,
+            ];
+            switch ($this->platform){
+                case 'coinbase':{
+                    $this->headers['CB-VERSION']=date('Y-m-d',time());
+                    break;
+                }
+                case 'coinbasepro':{
+                    $this->headers['CB-ACCESS-PASSPHRASE']=$this->passphrase;
+                    break;
+                }
             }
         }
     }
@@ -144,7 +184,7 @@ class Request
     protected function send(){
         $client = new \GuzzleHttp\Client();
 
-        $url=$this->host.$this->path;
+        $url=$this->host.$this->version.$this->path;
 
         if(!empty($this->data)) {
             if($this->type=='GET') {
@@ -174,7 +214,7 @@ class Request
                 $temp=json_decode($contents,true);
                 if(!empty($temp)) {
                     $temp['_method']=$this->type;
-                    $temp['_url']=$this->host.$this->path;
+                    $temp['_url']=$this->host.$this->version.$this->path;
                 }else{
                     $temp['_message']=$e->getMessage();
                 }
