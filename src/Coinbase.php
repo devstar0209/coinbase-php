@@ -33,7 +33,7 @@ class Coinbase
             'options'=>$this->options,
 
             'platform'=>'coinbase',
-            'version'=>'v2',
+            'version'=>'/v2',
         ];
     }
 

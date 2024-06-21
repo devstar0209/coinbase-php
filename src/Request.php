@@ -185,6 +185,7 @@ class Request
         $client = new \GuzzleHttp\Client();
 
         $url=$this->host.$this->version.$this->path;
+        print_r($url);
 
         if(!empty($this->data)) {
             if($this->type=='GET') {

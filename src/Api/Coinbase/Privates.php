@@ -14,7 +14,7 @@ class Privates extends Request
      * */
     public function getNotifications(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/notifications';
+        $this->path='/notifications';
         $this->data=$data;
         return $this->exec();
     }
@@ -24,7 +24,7 @@ class Privates extends Request
      * */
     public function getNotification(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/notifications/'.$data['notifications_id'];
+        $this->path='/notifications/'.$data['notifications_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -34,7 +34,7 @@ class Privates extends Request
      * */
     public function getUser(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/users/'.$data['user_id'];
+        $this->path='/users/'.$data['user_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -44,7 +44,7 @@ class Privates extends Request
      * */
     public function getUsers(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/user';
+        $this->path='/user';
         $this->data=$data;
         return $this->exec();
     }
@@ -54,7 +54,7 @@ class Privates extends Request
      * */
     public function getUserAuth(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/user/auth';
+        $this->path='/user/auth';
         $this->data=$data;
         return $this->exec();
     }
@@ -64,7 +64,7 @@ class Privates extends Request
      * */
     public function putUser(array $data=[]){
         $this->type='PUT';
-        $this->path='/v2/user';
+        $this->path='/user';
         $this->data=$data;
         return $this->exec();
     }
@@ -74,7 +74,7 @@ class Privates extends Request
      * */
     public function getAccounts(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts';
+        $this->path='/accounts';
         $this->data=$data;
         return $this->exec();
     }
@@ -84,7 +84,7 @@ class Privates extends Request
      * */
     public function getAccount(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'];
+        $this->path='/accounts/'.$data['account_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -94,7 +94,7 @@ class Privates extends Request
      * */
     public function putAccount(array $data=[]){
         $this->type='PUT';
-        $this->path='/v2/accounts/'.$data['account_id'];
+        $this->path='/accounts/'.$data['account_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -104,7 +104,7 @@ class Privates extends Request
      * */
     public function deleteAccount(array $data=[]){
         $this->type='DELETE';
-        $this->path='/v2/accounts/'.$data['account_id'];
+        $this->path='/accounts/'.$data['account_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -114,7 +114,7 @@ class Privates extends Request
      * */
     public function getAccountAddresses(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/addresses';
+        $this->path='/accounts/'.$data['account_id'].'/addresses';
         $this->data=$data;
         return $this->exec();
     }
@@ -124,7 +124,7 @@ class Privates extends Request
      * */
     public function getAccountAddress(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/addresses/'.$data['address_id'];
+        $this->path='/accounts/'.$data['account_id'].'/addresses/'.$data['address_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -134,7 +134,7 @@ class Privates extends Request
      * */
     public function getAccountAddressTransactions(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/addresses/'.$data['address_id'].'/transactions';
+        $this->path='/accounts/'.$data['account_id'].'/addresses/'.$data['address_id'].'/transactions';
         $this->data=$data;
         return $this->exec();
     }
@@ -144,7 +144,7 @@ class Privates extends Request
      * */
     public function postAccountAddresses(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/addresses';
+        $this->path='/accounts/'.$data['account_id'].'/addresses';
         $this->data=$data;
         return $this->exec();
     }
@@ -154,7 +154,7 @@ class Privates extends Request
      * */
     public function getAccountTransactions(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/transactions';
+        $this->path='/accounts/'.$data['account_id'].'/transactions';
         $this->data=$data;
         return $this->exec();
     }
@@ -164,7 +164,7 @@ class Privates extends Request
      * */
     public function getAccountTransaction(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/transactions/'.$data['transaction_id'];
+        $this->path='/accounts/'.$data['account_id'].'/transactions/'.$data['transaction_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -174,7 +174,7 @@ class Privates extends Request
      * */
     public function postAccountTransactionComplete(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/transactions/'.$data['transaction_id'].'/complete';
+        $this->path='/accounts/'.$data['account_id'].'/transactions/'.$data['transaction_id'].'/complete';
         $this->data=$data;
         return $this->exec();
     }
@@ -184,7 +184,7 @@ class Privates extends Request
      * */
     public function postAccountTransactionResend(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/transactions/'.$data['transaction_id'].'/resend';
+        $this->path='/accounts/'.$data['account_id'].'/transactions/'.$data['transaction_id'].'/resend';
         $this->data=$data;
         return $this->exec();
     }
@@ -194,7 +194,7 @@ class Privates extends Request
      * */
     public function deleteAccountTransaction(array $data=[]){
         $this->type='DELETE';
-        $this->path='/v2/accounts/'.$data['account_id'].'/transactions/'.$data['transaction_id'];
+        $this->path='/accounts/'.$data['account_id'].'/transactions/'.$data['transaction_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -204,7 +204,7 @@ class Privates extends Request
      * */
     public function getAccountBuys(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/buys';
+        $this->path='/accounts/'.$data['account_id'].'/buys';
         $this->data=$data;
         return $this->exec();
     }
@@ -214,7 +214,7 @@ class Privates extends Request
      * */
     public function getAccountBuyId(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/buys/'.$data['buy_id'];
+        $this->path='/accounts/'.$data['account_id'].'/buys/'.$data['buy_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -224,7 +224,7 @@ class Privates extends Request
      * */
     public function postAccountBuys(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/buys';
+        $this->path='/accounts/'.$data['account_id'].'/buys';
         $this->data=$data;
         return $this->exec();
     }
@@ -244,7 +244,7 @@ class Privates extends Request
      * */
     public function getAccountSells(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/sells';
+        $this->path='/accounts/'.$data['account_id'].'/sells';
         $this->data=$data;
         return $this->exec();
     }
@@ -254,7 +254,7 @@ class Privates extends Request
      * */
     public function getAccountSell(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/sells/'.$data['sell_id'];
+        $this->path='/accounts/'.$data['account_id'].'/sells/'.$data['sell_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -264,7 +264,7 @@ class Privates extends Request
      * */
     public function postAccountSells(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/sells';
+        $this->path='/accounts/'.$data['account_id'].'/sells';
         $this->data=$data;
         return $this->exec();
     }
@@ -273,7 +273,7 @@ class Privates extends Request
      * */
     public function postAccountSellCommit(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/sells/'.$data['sell_id'].'/commit';
+        $this->path='/accounts/'.$data['account_id'].'/sells/'.$data['sell_id'].'/commit';
         $this->data=$data;
         return $this->exec();
     }
@@ -283,7 +283,7 @@ class Privates extends Request
      * */
     public function getAccountDeposits(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/deposits';
+        $this->path='/accounts/'.$data['account_id'].'/deposits';
         $this->data=$data;
         return $this->exec();
     }
@@ -293,7 +293,7 @@ class Privates extends Request
      * */
     public function getAccountDeposit(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/deposits/'.$data['deposit_id'];
+        $this->path='/accounts/'.$data['account_id'].'/deposits/'.$data['deposit_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -303,7 +303,7 @@ class Privates extends Request
      * */
     public function postAccountDeposits(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/deposits';
+        $this->path='/accounts/'.$data['account_id'].'/deposits';
         $this->data=$data;
         return $this->exec();
     }
@@ -312,7 +312,7 @@ class Privates extends Request
      * */
     public function postAccountDepositCommit(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/deposits/'.$data['deposit_id'].'/commit';
+        $this->path='/accounts/'.$data['account_id'].'/deposits/'.$data['deposit_id'].'/commit';
         $this->data=$data;
         return $this->exec();
     }
@@ -322,7 +322,7 @@ class Privates extends Request
      * */
     public function getAccountWithdrawals(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/withdrawals';
+        $this->path='/accounts/'.$data['account_id'].'/withdrawals';
         $this->data=$data;
         return $this->exec();
     }
@@ -331,7 +331,7 @@ class Privates extends Request
      * */
     public function getAccountWithdrawal(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/accounts/'.$data['account_id'].'/withdrawals/'.$data['withdrawal_id'];
+        $this->path='/accounts/'.$data['account_id'].'/withdrawals/'.$data['withdrawal_id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -341,7 +341,7 @@ class Privates extends Request
      * */
     public function postAccountWithdrawals(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/withdrawals';
+        $this->path='/accounts/'.$data['account_id'].'/withdrawals';
         $this->data=$data;
         return $this->exec();
     }
@@ -351,7 +351,7 @@ class Privates extends Request
      * */
     public function postAccountWithdrawalCommit(array $data=[]){
         $this->type='POST';
-        $this->path='/v2/accounts/'.$data['account_id'].'/withdrawals/'.$data['withdrawal_id'].'/commit';
+        $this->path='/accounts/'.$data['account_id'].'/withdrawals/'.$data['withdrawal_id'].'/commit';
         $this->data=$data;
         return $this->exec();
     }
@@ -361,7 +361,7 @@ class Privates extends Request
      * */
     public function getPaymentMethods(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/payment-methods';
+        $this->path='/payment-methods';
         $this->data=$data;
         return $this->exec();
     }
@@ -371,7 +371,7 @@ class Privates extends Request
      * */
     public function getPaymentMethod(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/payment-methods/'.$data['payment_method_id'];
+        $this->path='/payment-methods/'.$data['payment_method_id'];
         $this->data=$data;
         return $this->exec();
     }

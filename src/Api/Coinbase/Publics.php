@@ -14,7 +14,7 @@ class Publics extends Request
      * */
     public function getCurrencies(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/currencies';
+        $this->path='/currencies';
         $this->data=$data;
         return $this->exec();
     }
@@ -24,7 +24,7 @@ class Publics extends Request
      * */
     public function getExchangeRates(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/exchange-rates';
+        $this->path='/exchange-rates';
         $this->data=$data;
         return $this->exec();
     }
@@ -34,7 +34,7 @@ class Publics extends Request
      * */
     public function getPricesBuy(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/prices/'.$data['currency_pair'].'/buy';
+        $this->path='/prices/'.$data['currency_pair'].'/buy';
         $this->data=$data;
         return $this->exec();
     }
@@ -44,7 +44,7 @@ class Publics extends Request
      * */
     public function getPricesSell(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/prices/'.$data['currency_pair'].'/sell';
+        $this->path='/prices/'.$data['currency_pair'].'/sell';
         $this->data=$data;
         return $this->exec();
     }
@@ -54,7 +54,7 @@ class Publics extends Request
      * */
     public function getPricesSpot(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/prices/'.$data['currency_pair'].'/spot';
+        $this->path='/prices/'.$data['currency_pair'].'/spot';
         $this->data=$data;
         return $this->exec();
     }
@@ -64,7 +64,7 @@ class Publics extends Request
      * */
     public function getTime(array $data=[]){
         $this->type='GET';
-        $this->path='/v2/time';
+        $this->path='/time';
         $this->data=$data;
         return $this->exec();
     }

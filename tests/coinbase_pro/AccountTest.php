@@ -13,8 +13,8 @@ class AccountTest extends TestCase {
     protected $coinbase;
 
     protected function setUp(): void {
-        $key="organizations/88078726-7dd9-404f-af97-c6c5e70df06f/apiKeys/16b4aa3a-5cc6-4a47-8bde-34b9dd8dcd7a";
-        $secret="-----BEGIN EC PRIVATE KEY-----\nMHcCAQEEIG3DhOEPWiyb0gZ1KRokz9OFl//6TOkFZan0iYwaIq82oAoGCCqGSM49\nAwEHoUQDQgAEBVPIR1k9Agzmc0sbN1XOrjJ56SgYu3SlTs3RXQzCIAabmYbt3ccJ\n+tK8y9VxSa3YVrH1/3vYPxyJmrlYXG0SAw==\n-----END EC PRIVATE KEY-----\n";
+        $key="KEY NAME";
+        $secret="SECRET KEY";
         $this->coinbase=new CoinbasePro($key,$secret);
     }
 
