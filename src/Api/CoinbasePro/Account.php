@@ -29,23 +29,4 @@ class Account extends Request
         return $this->exec();
     }
 
-    /**
-     *GET /accounts/<account-id>/ledger
-     * */
-    public function getLedger(array $data=[]){
-        $this->type='GET';
-        $this->path='/accounts/'.$data['account_id'].'/ledger';
-        $this->data=$data;
-        return $this->exec();
-    }
-
-    /**
-     *GET /accounts/<account_id>/holds
-     * */
-    public function getHolds(array $data=[]){
-        $this->type='GET';
-        $this->path='/accounts/'.$data['account_id'].'/holds';
-        $this->data=$data;
-        return $this->exec();
-    }
 }

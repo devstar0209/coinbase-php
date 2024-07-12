@@ -3,18 +3,18 @@
  * @author lin <465382251@qq.com>
  * */
 
-namespace Lin\Coinbase\Api\CoinbasePro;
+namespace Lin\Coinbase\Api\CoinbaseExchange;
 
 use Lin\Coinbase\Request;
 
 class Fees extends Request
 {
     /**
-     * GET /transaction_summary
+     * GET /fees
      * */
     public function get(array $data=[]){
         $this->type='GET';
-        $this->path='/transaction_summary';
+        $this->path='/fees';
         $this->data=$data;
         return $this->exec();
     }

@@ -20,7 +20,7 @@ class Order extends Request
     }
 
     /**
-     * GET /orders/<id>
+     * GET /orders/historical/<id>
      * GET /orders/client:<client_oid>
      * */
     public function get(array $data=[]){
@@ -31,7 +31,7 @@ class Order extends Request
         }
 
         if(isset($data['id'])) {
-            $this->path='/orders/'.$data['id'];
+            $this->path='/orders/historical/'.$data['id'];
         }
 
         $this->data=$data;
@@ -39,40 +39,11 @@ class Order extends Request
     }
 
     /**
-     *GET /orders
+     *GET /orders/historical/batch
      * */
     public function getList(array $data=[]){
         $this->type='GET';
-        $this->path='/orders';
-        $this->data=$data;
-        return $this->exec();
-    }
-
-    /**
-     *DELETE /orders
-     * */
-    public function deleteAll(array $data=[]){
-        $this->type='DELETE';
-        $this->path='/orders';
-        $this->data=$data;
-        return $this->exec();
-    }
-
-    /**
-     *  DELETE /orders/<id>
-        DELETE /orders/client:<client_oid>
-     * */
-    public function delete(array $data=[]){
-        $this->type='DELETE';
-
-        if(isset($data['client_oid'])) {
-            $this->path='/orders/client:'.$data['client_oid'];
-        }
-
-        if(isset($data['id'])) {
-            $this->path='/orders/'.$data['id'];
-        }
-
+        $this->path='/orders/historical/batch';
         $this->data=$data;
         return $this->exec();
     }

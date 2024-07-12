@@ -3,11 +3,11 @@
  * @author lin <465382251@qq.com>
  * */
 
-namespace Lin\Coinbase\Api\CoinbasePro;
+namespace Lin\Coinbase\Api\CoinbaseExchange;
 
 use Lin\Coinbase\Request;
 
-class Deposits extends Request
+class Deposit extends Request
 {
     /**
      * POST /deposits/payment-method

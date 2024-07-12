@@ -3,7 +3,7 @@
  * @author lin <465382251@qq.com>
  * */
 
-namespace Lin\Coinbase\Api\CoinbasePro;
+namespace Lin\Coinbase\Api\CoinbaseExchange;
 
 use Lin\Coinbase\Request;
 
@@ -35,6 +35,16 @@ class Withdrawals extends Request
     public function postCrypto(array $data=[]){
         $this->type='POST';
         $this->path='/withdrawals/crypto';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
+     *GET /withdrawals/fee-estimate
+     * */
+    public function getCryptoFeeEstiamte(array $data=[]){
+        $this->type='GET';
+        $this->path='/withdrawals/fee-estimate';
         $this->data=$data;
         return $this->exec();
     }

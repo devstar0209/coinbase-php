@@ -21,6 +21,8 @@ Support for more request Settings
 $coinbase=new Coinbase();
 //or
 $coinbase=new CoinbasePro();
+// or
+$coinbase=new CoinbaseExchange();
 
 //You can set special needs
 $coinbase->setOptions([
@@ -359,6 +361,11 @@ try {
 
 ```
 
-[More Test](https://github.com/devstar0209/coinbase-php/tree/master/tests/coinbase_pro/)
 
 [More Api](https://github.com/devstar0209/coinbase-php/tree/master/src/Api/CoinbasePro/)
+[More Api](https://github.com/devstar0209/coinbase-php/tree/master/src/Api/CoinbaseExchange/)
+
+#### Test
+./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/coinbase_exchange/AccountTest.php
+[More Test](https://github.com/devstar0209/coinbase-php/tree/master/tests/coinbase_pro/)
+
