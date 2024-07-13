@@ -72,7 +72,7 @@ class Request
      * */
     protected function signature(){
         $body='';
-        $path=$this->type.$this->path;
+        $path=$this->version.$this->path;
 
         if (!empty($this->data)) {
             if($this->type=='GET') {
@@ -82,22 +82,21 @@ class Request
             }
         }
 
-        $plain = $this->nonce . $path . $body;
+        $plain = $this->nonce . $this->type . $path . $body;
 
-        switch ($this->platform){
-            case 'coinbase':{
+        switch ($this->platform) {
+            case 'coinbase':
                 $this->signature = hash_hmac('sha256', $plain, $this->secret);
                 break;
-            }
-            case 'coinbasepro':{
+            case 'coinbasepro':
+                $plain = $this->nonce . $path . $body;
                 $this->signature = base64_encode(hash_hmac('sha256', $plain, base64_decode($this->secret), true));
                 break;
-            }
-            case 'coinbaseexchange':{
-                $plain = $this->nonce . $this->type . $path . $body;
-                $this->signature = base64_encode(hash_hmac('sha256', $plain, base64_decode($this->secret), true));
+            
+            case 'coinbaseexchange':
+                $this->signature = hash_hmac('sha256', $plain, $this->secret);
                 break;
-            }
+            
         }
     }
 
@@ -154,7 +153,7 @@ class Request
             ];
             switch ($this->platform) {
                 case 'coinbase':
-                    $this->headers['CB-VERSION']=date('Y-m-d',time());
+                    $this->headers['CB-VERSION']='2017-05-26';
                     break;
                 
                 case 'coinbasepro':

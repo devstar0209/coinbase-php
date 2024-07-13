@@ -13,8 +13,8 @@ class AccountTest extends TestCase {
     protected $coinbase;
 
     protected function setUp(): void {
-        $key="0znT26xvHthhtLz9";
-        $secret="smBvGJLLqQ2R7GsamzOKD9gsBXfbuH0b";
+        $key="";
+        $secret="";
         $this->coinbase=new CoinbaseExchange($key,$secret);
     }
 

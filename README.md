@@ -256,15 +256,17 @@ Order related API [More](https://github.com/devstar0209/coinbase-php/blob/master
 ```php
 $coinbase=new CoinbasePro($key,$secret,$passphrase);
 
-//****************************LIMIT
+//****************************Market
 try {
     $result=$coinbase->order()->post([
-        //'client_oid'=>'',
-        'type'=>'limit',
-        'side'=>'sell',
-        'product_id'=>'BTC-USD',
-        'price'=>'20000',
-        'size'=>'0.01'
+        'client_order_id' => time()."",
+        'side'=>'SELL',
+        'product_id'=>"BTC-USD",
+        'order_configuration' => [
+            'market_market_ioc' => [
+                'base_size'=>'0.001'
+            ]
+        ]
     ]);
     print_r($result);
 }catch (\Exception $e){
@@ -275,7 +277,7 @@ sleep(1);
 //track the order
 try {
     $result=$coinbase->order()->get([
-        'id'=>$result['id'],
+        'id'=>$result['order_id'],
     ]);
     print_r($result);
 }catch (\Exception $e){
@@ -286,7 +288,7 @@ sleep(1);
 //cancellation of order
 try {
     $result=$coinbase->order()->delete([
-        'id'=>$result['id'],
+        'id'=>$result['order_id'],
         //'id'=>'6bad6a7d-b01a-4a93-9e6e-e9934bcef4ef',
     ]);
     print_r($result);
@@ -294,25 +296,11 @@ try {
     print_r($e->getMessage());
 }
 
-//****************************MARKET
-try {
-    $result=$coinbase->order()->post([
-        //'client_oid'=>'',
-        'type'=>'market',
-        'side'=>'sell',
-        'product_id'=>'BTC-USD',
-        'size'=>'0.01',
-    ]);
-    print_r($result);
-}catch (\Exception $e){
-    print_r($e->getMessage());
-}
-sleep(1);
 
 //track the order
 try {
     $result=$coinbase->order()->get([
-        'id'=>$result['id'],
+        'id'=>$result['order_id'],
         //'client_oid'=>''
     ]);
     print_r($result);
@@ -323,7 +311,7 @@ try {
 
 Accounts related API [More]()
 ```php
-$coinbase=new CoinbasePro($key,$secret,$passphrase);
+$coinbase=new CoinbaseExchange($key,$secret,$passphrase);
 
 try {
     $result=$coinbase->account()->getList();
@@ -366,6 +354,6 @@ try {
 [More Api](https://github.com/devstar0209/coinbase-php/tree/master/src/Api/CoinbaseExchange/)
 
 #### Test
-./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/coinbase_exchange/AccountTest.php
+./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/coinbase/AccountTest.php
 [More Test](https://github.com/devstar0209/coinbase-php/tree/master/tests/coinbase_pro/)
 
