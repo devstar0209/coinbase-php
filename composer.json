@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Coinbase API Like the official document interface, Support for arbitrary extension.",
     "license": "MIT",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "keywords": ["coinbase", "exchange", "coinbase pro", "trade"],
     "authors": [
         {
