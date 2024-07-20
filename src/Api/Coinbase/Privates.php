@@ -170,6 +170,16 @@ class Privates extends Request
     }
 
     /**
+     *POST https://api.coinbase.com/v2/accounts/:account_id/transactions
+     * */
+    public function postAccountTransaction(array $data=[]){
+        $this->type='POST';
+        $this->path='/accounts/'.$data['account_id'].'/transactions/';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
      *POST https://api.coinbase.com/v2/accounts/:account_id/transactions/:transaction_id/complete
      * */
     public function postAccountTransactionComplete(array $data=[]){
