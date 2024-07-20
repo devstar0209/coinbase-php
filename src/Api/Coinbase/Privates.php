@@ -174,7 +174,7 @@ class Privates extends Request
      * */
     public function postAccountTransaction(array $data=[]){
         $this->type='POST';
-        $this->path='/accounts/'.$data['account_id'].'/transactions/';
+        $this->path='/accounts/'.$data['account_id'].'/transactions';
         $this->data=$data;
         return $this->exec();
     }
